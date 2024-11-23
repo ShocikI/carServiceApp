@@ -1,0 +1,11 @@
+<h1 class="w-60 pt-2 flex flex-col items-center text-xl font-semibold">Car List</h1>
+<div class="w-60 mt-4 mb-4 flex flex-col gap-2 items-center">
+    <input [(ngModel)]="newCarName" placeholder="Enter car name" class="w-52 px-4 py-2 rounded-xl" />
+    <button (click)="addCar()" class="px-4 py-0.5 bg-indigo-800 text-white rounded-lg">Add Car</button>
+</div>
+<ul class="w-60 flex flex-col gap-1">
+    <li *ngFor="let car of cars" class="mb-2 flex flex-row place-content-between">
+        <a [routerLink]="['/car-details', car.id]" class="pl-2 font-semibold">⮕ {{ car.name }}</a>
+        <button (click)="deleteCar(car.id)" class="px-4 py-0.5 bg-pink-500 text-white rounded-lg">Delete</button>
+    </li>
+</ul>

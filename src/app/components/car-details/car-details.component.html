@@ -1,0 +1,18 @@
+<div class="w-80 pt-2 pl-2 flex flex-col place-content-between gap-2 items-center">
+    <h1 class="text-xl font-semibold">{{ car.name }} Details</h1>
+    <a routerLink="/" class="px-4 py-0.5 bg-green-500 text-white rounded-lg">Back to Cars</a>
+    <h3 class="text-lg">Services</h3>
+</div>
+<div>
+    <div class="w-80 mt-4 mb-4 flex flex-col gap-2 items-center">
+        <input [(ngModel)]="newService.part" placeholder="Part" class="w-52 px-4 py-1 rounded-xl" />
+        <input [(ngModel)]="newService.cost" type="number" placeholder="Cost" class="w-52 px-4 py-1 rounded-xl" />
+        <button (click)="addService()" class="px-4 py-0.5 bg-indigo-800 text-white rounded-lg">Add Service</button>
+    </div>
+    <ul class="w-80 flex flex-col gap-2 pl-2">
+        <li *ngFor="let service of car.services; let i = index" class="mb-2 flex flex-row place-content-between">
+            {{ service.part }}: ${{ service.cost }}
+            <button (click)="deleteService(i)" class="px-4 py-0.5 bg-pink-500 text-white rounded-lg">Delete</button>
+        </li>
+    </ul>
+</div>
